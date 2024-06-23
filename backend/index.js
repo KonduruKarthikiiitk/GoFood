@@ -9,15 +9,18 @@ app.use(express.json())
 const port = 5000
 app.use(cors());
 mongoDB()
-
+app.use((req,res) =>{
+    res.send("server is running")
+})
 app.use((req,res,next) =>{
+    
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")
     res.header(
         "Access-Control-Allow-Headers",
         "Origin,X-Requeted-With,Content-Type,Accept"
     )
     next()
-    res.send("server is running")
+   
 })
 
 
