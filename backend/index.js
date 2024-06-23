@@ -9,9 +9,7 @@ app.use(express.json())
 const port = 5000
 app.use(cors());
 mongoDB()
-app.use((req,res) =>{
-    res.send("server is running")
-})
+
 app.use((req,res,next) =>{
     
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")

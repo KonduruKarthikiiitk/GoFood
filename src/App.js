@@ -9,7 +9,7 @@ import MyOrder from "./screens/MyOrder";
 function App() {
   return (
     <CartProvider>
-      <Router>
+      <Router> 
       <div>
         <Routes>
           <Route  path="/" element={<Home />} />

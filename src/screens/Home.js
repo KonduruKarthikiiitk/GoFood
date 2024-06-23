@@ -194,7 +194,7 @@ function Home() {
       <div className=' container mx-auto '>
         {
           foodCat && foodCat.length !== 0
-            ? (
+            ? ( 
               foodCat.map((data, index) => {
                 return(
                   <div key={index}  className=' grid mt-2 mx-auto  '>
