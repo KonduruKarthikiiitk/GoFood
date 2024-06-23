@@ -17,6 +17,7 @@ app.use((req,res,next) =>{
         "Origin,X-Requeted-With,Content-Type,Accept"
     )
     next()
+    res.send("server is running")
 })
 
 
