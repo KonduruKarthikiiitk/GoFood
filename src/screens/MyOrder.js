@@ -6,7 +6,7 @@ function MyOrder() {
   const fetchMyOrder = async (e) => {
     try {
       const response = await axios.post(
-        "https://go-food-deployment-server.vercel.app/api/myOrderData",
+        "https://go-food-deployment-server.vercel.app/myOrderData",
         {
           email: localStorage.getItem("userEmail"),
         },

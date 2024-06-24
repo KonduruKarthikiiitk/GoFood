@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     try {
         const response =  await axios.post(
-            "https://go-food-deployment-server.vercel.app/api/loginuser",
+            "https://go-food-deployment-server.vercel.app/loginuser",
             {
               email: credentials.email,
               password: credentials.password,

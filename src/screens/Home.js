@@ -13,7 +13,7 @@ function Home() {
   const loadData = async () => {
     try {
       const response = await axios.get(
-        "https://go-food-deployment-server.vercel.app/api/foodData",
+        "https://go-food-deployment-server.vercel.app/foodData",
         {
           headers: {
             "Content-Type": "application/json",

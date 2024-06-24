@@ -20,7 +20,8 @@ function Cart() {
 
     try {
       let response = await axios.post(
-        "https://go-food-deployment-server.vercel.app/api/orderData",
+        "https://go-food-deployment-server.vercel.app/orderData",
+        
         {
           order_data:data,
           email:userEmail,

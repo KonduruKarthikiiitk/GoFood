@@ -23,9 +23,9 @@ app.use((req,res,next) =>{
 
 
 
-app.use("/api",router)
-app.use("/api",router2)
-app.use("/api",router3)
+app.use("/",router)
+app.use("/",router2)
+app.use("/",router3)
 app.listen(port,()=>{
     console.log(`Server is running on port ${port} `)
 })
