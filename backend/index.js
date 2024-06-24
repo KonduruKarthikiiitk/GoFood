@@ -10,17 +10,22 @@ const port = 5000
 app.use(cors());
 mongoDB()
 
-app.use((req,res,next) =>{
-    
-    res.setHeader("Access-Control-Allow-Origin","https://go-food-deployment-server.vercel.app")
+const allowedOrigins = [
+    "https://go-food-client-22kpi5ewt-kondurukarthikiiitks-projects.vercel.app",
+    "https://go-food-deployment-server.vercel.app"
+];
+
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader("Access-Control-Allow-Origin", origin);
+    }
     res.setHeader(
         "Access-Control-Allow-Headers",
-        "Origin,X-Requeted-With,Content-Type,Accept"
-    )
-    next()
-   
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
 })
-
 
 
 app.use("/",router)
