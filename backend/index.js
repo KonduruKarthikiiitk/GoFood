@@ -11,7 +11,7 @@ app.use(cors());
 mongoDB()
 
 app.use((req,res,next) =>{
-    res.send("server is running")
+    
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")
     res.header(
         "Access-Control-Allow-Headers",
@@ -23,9 +23,9 @@ app.use((req,res,next) =>{
 
 
 
-app.use("https://go-food-deployment-server.vercel.app/",router)
-app.use("https://go-food-deployment-server.vercel.app/",router2)
-app.use("https://go-food-deployment-server.vercel.app/",router3)
+app.use("/api",router)
+app.use("/api",router2)
+app.use("/api",router3)
 app.listen(port,()=>{
     console.log(`Server is running on port ${port} `)
 })

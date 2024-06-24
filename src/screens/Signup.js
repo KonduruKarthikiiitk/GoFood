@@ -19,7 +19,7 @@ function Signup() {
     // console.log("hiiiiii");
     try {
         const response =  await axios.post(
-            "https://go-food-deployment-server.vercel.app/createuser",
+            "https://go-food-deployment-server.vercel.app/api/createuser",
             {
               name: credentials.name,
               email: credentials.email,
