@@ -5,6 +5,7 @@ import { Link,useNavigate } from 'react-router-dom';
 // import { Link } from "react-router-dom";
 
 function Signup() {
+  let navigate = useNavigate()
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -38,7 +39,10 @@ function Signup() {
           if (!data.success) {
             alert("Enter valid credentials");
           }
-        
+          if(data.success){
+            navigate("/login")
+           
+          }
     } catch (error) {
         console.error("Error:", error);
     }
