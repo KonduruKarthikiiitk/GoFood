@@ -11,7 +11,7 @@ app.use(cors());
 mongoDB()
 
 const allowedOrigins = [
-    "https://go-food-client-22kpi5ewt-kondurukarthikiiitks-projects.vercel.app",
+    "https://go-food-client-seven.vercel.app",
     "https://go-food-deployment-server.vercel.app"
 ];
 
