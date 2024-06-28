@@ -111,7 +111,7 @@ function Navbar() {
                 <h3 className="text-3xl font-bold   italic">GoFood</h3>
               </div>
               <div className="sm:ml-auto">
-              <div className="hidden   sm:ml-6 sm:block font-semibold  ">
+              <div className="hidden   sm:ml-6 md:block font-semibold  ">
                 <div className="flex    space-x-4">
                   <NavLink
                     exact
