@@ -78,7 +78,7 @@ function Navbar() {
       <nav className=" rounded-md    fixed w-full top-0 z-50" style={{backgroundColor:"#EF5E0C"}}> 
         <div className="mx-auto max-w-7xl  sm:px-6 lg:px-8">
           <div className=" flex h-16 items-center ">
-            <div className="  sm:hidden">
+            <div className="  md:hidden">
               <button
                 onClick={toggleNavbar}
                 type="button"
