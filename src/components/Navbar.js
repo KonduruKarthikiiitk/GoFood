@@ -62,7 +62,7 @@ const Badge = styled(BaseBadge)(
 function Navbar() {
   let data = useCart();
   const [isopen, setIsOpen] = useState(false);
-  const [cartView,setCartView] = useState(false)
+  const [cartView, setCartView] = useState(false);
   const navigate = useNavigate();
   const toggleNavbar = () => {
     setIsOpen(!isopen);
@@ -75,10 +75,13 @@ function Navbar() {
 
   return (
     <div>
-      <nav className=" rounded-md    fixed w-full top-0 z-50" style={{backgroundColor:"#EF5E0C"}}> 
+      <nav
+        className=" rounded-md    fixed w-full top-0 z-50"
+        style={{ backgroundColor: "#EF5E0C" }}
+      >
         <div className="mx-auto max-w-7xl  sm:px-6 lg:px-8">
           <div className=" flex h-16 items-center ">
-            <div className="  md:hidden">
+            <div className="  sm:hidden">
               <button
                 onClick={toggleNavbar}
                 type="button"
@@ -106,87 +109,94 @@ function Navbar() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-1 items-center  justify-center md:items-stretch  text-white ">
+            <div className="flex flex-1 items-center  justify-center sm:items-stretch  text-white ">
               <div className="flex flex-shrink-0 ">
                 <h3 className="text-3xl font-bold   italic">GoFood</h3>
               </div>
               <div className="sm:ml-auto">
-              <div className="hidden   sm:ml-6 md:block font-semibold  ">
-                <div className="flex    space-x-4">
-                  <NavLink
-                    exact
-                    to="/"
-                    className="  hover:bg-orange-400 rounded-md  px-3 py-2 focus:bg-orange-400  "
-                    aria-current="page"
-                  >
-                    Home
-                  </NavLink>
-                  {localStorage.getItem("authToken") ? (
-                    <Link
-                      to="/myOrder"
+                <div className="hidden   sm:ml-6 sm:block font-semibold  ">
+                  <div className="flex    space-x-4">
+                    <NavLink
                       exact
-                      className="   hover:bg-orange-400  text-white block rounded-md px-3 py-2 text-base focus:bg-orange-400   "
+                      to="/"
+                      className="  hover:bg-orange-400 rounded-md  px-3 py-2 focus:bg-orange-400  "
                       aria-current="page"
                     >
-                      MyOrders
-                    </Link>
-                  ) : (
-                    ""
-                  )}
-               
-             
-                {!localStorage.getItem("authToken") ? (
-                  <div className="flex space-x-4  ">
-                    <NavLink
-                      to="/login"
-                      className=" hover:bg-orange-400 text-white focus:bg-orange-400 rounded-md px-3 py-2  "
-                    >
-                      Login
+                      Home
                     </NavLink>
-                    <NavLink
-                      to="/signup"
-                      className="hover:bg-orange-400 focus:bg-orange-400 hover:text-white rounded-md px-3 py-3 text-sm "
-                    >
-                      Signup
-                    </NavLink>
+                    {localStorage.getItem("authToken") ? (
+                      <Link
+                        to="/myOrder"
+                        exact
+                        className="   hover:bg-orange-400  text-white block rounded-md px-3 py-2 text-base focus:bg-orange-400   "
+                        aria-current="page"
+                      >
+                        MyOrders
+                      </Link>
+                    ) : (
+                      ""
+                    )}
+
+                    {!localStorage.getItem("authToken") ? (
+                      <div className="flex space-x-4  ">
+                        <NavLink
+                          to="/login"
+                          className=" hover:bg-orange-400 text-white focus:bg-orange-400 rounded-md px-3 py-2  "
+                        >
+                          Login
+                        </NavLink>
+                        <NavLink
+                          to="/signup"
+                          className="hover:bg-orange-400 focus:bg-orange-400 hover:text-white rounded-md px-3 py-3 text-sm "
+                        >
+                          Signup
+                        </NavLink>
+                      </div>
+                    ) : (
+                      <div className="  space-x-4 ">
+                        <button
+                          to="/"
+                          className=" hover:bg-orange-400 focus:bg-orange-400  hover:text-white rounded-md px-3 py-3 text-sm "
+                          onClick={() => setCartView(true)}
+                        >
+                          MyCart
+                          <Badge
+                            className="text-orange-500   "
+                            badgeContent={data.length}
+                          >
+                            <BadgeContent />
+                          </Badge>
+                        </button>
+                        {cartView ? (
+                          <Modal
+                            onClose={() => {
+                              setCartView(false);
+                            }}
+                          >
+                            <Cart />
+                          </Modal>
+                        ) : null}
+                        <button
+                          to="/"
+                          className="hover:bg-orange-400 focus:bg-orange-400  hover:text-white rounded-md px-3 py-3 text-sm "
+                          onClick={handleLogout}
+                        >
+                          LogOut
+                        </button>
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <div className="  space-x-4 ">
-                    <button
-                      to="/"
-                      className=" hover:bg-orange-400 focus:bg-orange-400  hover:text-white rounded-md px-3 py-3 text-sm "
-                    onClick={() =>setCartView(true)}
-                    >
-                        
-                      MyCart 
-                    
-                      <Badge className="text-orange-500   "  badgeContent={data.length}>
-                        <BadgeContent />
-                      </Badge>
-                      
-                    </button>
-                    {cartView?  <Modal onClose={() => {setCartView(false)}} ><Cart /></Modal>:null}
-                    <button
-                      to="/"
-                      className="hover:bg-orange-400 focus:bg-orange-400  hover:text-white rounded-md px-3 py-3 text-sm "
-                      onClick={handleLogout}
-                    >
-                      LogOut
-                    </button>
-                  </div>
-                )}
                 </div>
               </div>
-              </div>
-            </div> 
-            <div className="mb-2 lg:-mr-10 ml-6   space-x-4 " >
+            </div>
+            <div className="mb-2 lg:-mr-10 ml-6   space-x-4 ">
               <Switcher className="p-2 ml-auto" />
             </div>
           </div>
         </div>
 
         {isopen && (
-          <div className="md:hidden" id="mobile-menu">
+          <div className="sm:hidden" id="mobile-menu">
             <div className="space-y-1 px-2 pb-3 pt-2">
               <Link
                 to="/"
@@ -223,16 +233,30 @@ function Navbar() {
                   >
                     Login
                   </Link>
-                  </>
+                </>
               ) : (
                 <span className="">
-                  <button onClick={() =>setCartView(true)} className=" text-white w-full text-left   hover:bg-orange-500    rounded-md px-3  py-2 text-base font-medium">
+                  <button
+                    onClick={() => setCartView(true)}
+                    className=" text-white w-full text-left   hover:bg-orange-500    rounded-md px-3  py-2 text-base font-medium"
+                  >
                     MyCart
-                    <Badge className="text-orange-500  "  badgeContent={data.length}>
-                        <BadgeContent />
-                      </Badge>
+                    <Badge
+                      className="text-orange-500  "
+                      badgeContent={data.length}
+                    >
+                      <BadgeContent />
+                    </Badge>
                   </button>
-                  {cartView?  <Modal onClose={() => {setCartView(false)}} ><Cart /></Modal>:null}
+                  {cartView ? (
+                    <Modal
+                      onClose={() => {
+                        setCartView(false);
+                      }}
+                    >
+                      <Cart />
+                    </Modal>
+                  ) : null}
                   <button
                     className="    hover:bg-orange-500 text-white  w-full text-left   block rounded-md px-3 py-2 text-base font-medium"
                     onClick={handleLogout}
