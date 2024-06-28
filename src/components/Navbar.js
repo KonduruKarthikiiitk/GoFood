@@ -70,7 +70,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
 
-    navigate("/login");
+    window.location.reload();
   };
 
   return (
@@ -106,7 +106,7 @@ function Navbar() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-1 items-center  justify-center sm:items-stretch ju text-white ">
+            <div className="flex flex-1 items-center  justify-center sm:items-stretch  text-white ">
               <div className="flex flex-shrink-0 ">
                 <h3 className="text-3xl font-bold   italic">GoFood</h3>
               </div>
