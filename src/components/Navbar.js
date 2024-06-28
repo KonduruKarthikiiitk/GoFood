@@ -106,7 +106,7 @@ function Navbar() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-1 items-center  justify-center sm:items-stretch  text-white ">
+            <div className="flex flex-1 items-center  justify-center md:items-stretch  text-white ">
               <div className="flex flex-shrink-0 ">
                 <h3 className="text-3xl font-bold   italic">GoFood</h3>
               </div>
@@ -186,7 +186,7 @@ function Navbar() {
         </div>
 
         {isopen && (
-          <div className="sm:hidden" id="mobile-menu">
+          <div className="md:hidden" id="mobile-menu">
             <div className="space-y-1 px-2 pb-3 pt-2">
               <Link
                 to="/"
